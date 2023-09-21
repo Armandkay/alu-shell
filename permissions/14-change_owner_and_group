@@ -1,2 +1,4 @@
 #!/bin/bash
-chmod +x vincent ./staff
+for file in *; do
+chown vincent:staff $file
+done

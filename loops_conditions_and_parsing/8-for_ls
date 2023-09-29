@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script lists the content of the current directory, showing only the part of the name after the first dash.
+
+# Use a for loop to iterate through files in the directory
+for file in *; do
+    # Check if the file name starts with a dot (hidden file), and if so, continue to the next iteration
+    if [[ "$file" == .* ]]; then
+        continue
+    fi
+
+    # Use cut to remove everything before the first dash and display the result
+    # The -d option specifies the delimiter (in this case, the dash '-')
+    # The -f 2- option tells cut to display everything starting from the second field to the end
+    name_part=$(echo "$file" | cut -d '-' -f 2-)
+    echo "$name_part"
+done
